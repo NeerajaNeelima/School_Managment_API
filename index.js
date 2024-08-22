@@ -8,15 +8,15 @@ dotenv.config();
 const app = express();
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const testToken = 'Bearer test-token-123'; // Your test token
+// app.use((req, res, next) => {
+//     const authHeader = req.headers['authorization'];
+//     const testToken = 'Bearer test-token-123'; // Your test token
 
-    if (authHeader !== testToken) {
-        return res.status(401).json({ error: 'Authentication required' });
-    }
-    next();
-});
+//     if (authHeader !== testToken) {
+//         return res.status(401).json({ error: 'Authentication required' });
+//     }
+//     next();
+// });
 
 
 app.use('/api', schoolRoutes);
