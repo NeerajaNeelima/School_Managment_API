@@ -9,7 +9,10 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-    if (!req.headers['authorization']) {
+    const authHeader = req.headers['authorization'];
+    const testToken = 'Bearer test-token-123'; // Your test token
+
+    if (authHeader !== testToken) {
         return res.status(401).json({ error: 'Authentication required' });
     }
     next();
